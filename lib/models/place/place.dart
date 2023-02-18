@@ -14,18 +14,22 @@ class Place {
   final String id;
   @JsonKey(defaultValue: 'universityId')
   final String universityId;
+  @JsonKey(defaultValue: 6.2)
+  final double rasstoyanie;
 
   Place({
     required this.details,
     required this.id,
     required this.universityId,
+    required this.rasstoyanie,
     // required this.rooms,
   });
 
   const Place.none(
       {this.details = const PlaceDetails.none(),
       this.id = 'id',
-      this.universityId = 'universityId'});
+      this.universityId = 'universityId',
+      this.rasstoyanie = 6.4});
 
   static PlaceDetails _fromJson(Map<String, dynamic>? json) =>
       json == null ? const PlaceDetails.none() : PlaceDetails.fromJson(json);

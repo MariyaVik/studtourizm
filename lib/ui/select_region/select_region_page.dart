@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/places/places_state.dart';
 
 import '../../mobx/common/common_state.dart';
 import '../../models/region/region.dart';
@@ -38,6 +39,13 @@ class SelectRegionPage extends StatelessWidget {
                             await Provider.of<CommonState>(context,
                                     listen: false)
                                 .getCurrentLocation();
+                            var coord =
+                                Provider.of<CommonState>(context, listen: false)
+                                    .position;
+                            // await Provider.of<PlacesState>(context,
+                            //         listen: false)
+                            //     .loadPlacesNearUser(
+                            //         coord!.latitude, coord.longitude);
                             Navigator.of(context)
                                 .pushReplacementNamed(AppNavRouteName.home);
                           },

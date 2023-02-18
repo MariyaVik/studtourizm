@@ -17,6 +17,52 @@ mixin _$CommonState on _CommonState, Store {
               name: '_CommonState.dateRangeText'))
           .value;
 
+  late final _$activeTabIndexAtom =
+      Atom(name: '_CommonState.activeTabIndex', context: context);
+
+  @override
+  int get activeTabIndex {
+    _$activeTabIndexAtom.reportRead();
+    return super.activeTabIndex;
+  }
+
+  @override
+  set activeTabIndex(int value) {
+    _$activeTabIndexAtom.reportWrite(value, super.activeTabIndex, () {
+      super.activeTabIndex = value;
+    });
+  }
+
+  late final _$userAtom = Atom(name: '_CommonState.user', context: context);
+
+  @override
+  User get user {
+    _$userAtom.reportRead();
+    return super.user;
+  }
+
+  @override
+  set user(User value) {
+    _$userAtom.reportWrite(value, super.user, () {
+      super.user = value;
+    });
+  }
+
+  late final _$isAuthAtom = Atom(name: '_CommonState.isAuth', context: context);
+
+  @override
+  bool get isAuth {
+    _$isAuthAtom.reportRead();
+    return super.isAuth;
+  }
+
+  @override
+  set isAuth(bool value) {
+    _$isAuthAtom.reportWrite(value, super.isAuth, () {
+      super.isAuth = value;
+    });
+  }
+
   late final _$currentRegionAtom =
       Atom(name: '_CommonState.currentRegion', context: context);
 
@@ -124,6 +170,9 @@ mixin _$CommonState on _CommonState, Store {
   @override
   String toString() {
     return '''
+activeTabIndex: ${activeTabIndex},
+user: ${user},
+isAuth: ${isAuth},
 currentRegion: ${currentRegion},
 onlySelReg: ${onlySelReg},
 dateRange: ${dateRange},

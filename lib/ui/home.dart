@@ -6,6 +6,7 @@ import '../theme/theme.dart';
 import 'bids_screen/bids_page.dart';
 import 'navigation.dart';
 import 'profile/profile_page.dart';
+import 'rating/rating_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -49,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 initialRoute: MapNestedNavigation.initialRoute,
                 onGenerateRoute: MapNestedNavigation.onGenerateRoute,
               ),
-              Container(color: mainColor),
+              RatingPage(),
               BidsPage(),
               ProfilePage(),
             ]),

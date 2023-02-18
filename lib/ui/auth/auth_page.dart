@@ -140,7 +140,7 @@ class _AuthPageState extends State<AuthPage> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
       print(Provider.of<CommonState>(context, listen: false).user);
-      Provider.of<CommonState>(context).isAuth = true;
+      Provider.of<CommonState>(context, listen: false).isAuth = true;
       Navigator.of(context).pop();
     }
   }

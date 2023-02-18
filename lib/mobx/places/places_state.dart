@@ -56,9 +56,9 @@ abstract class _PlacesState with Store {
   @action
   Future<void> loadPlacesNearUser(double lat, double long) async {
     print('по локации');
-    places = await placesRepository
+    placesNearUser = await placesRepository
         .getPlacesNearUser(lat, long)
-        .then((places) => placesNearUser)
+        .then((places) => places)
         .catchError((e) {
       error = e.toString();
       print(error);

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studtourizm/theme/theme.dart';
 
 import '../../models/place/place.dart';
 
@@ -41,12 +42,24 @@ class PlaceMainInfo extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Text(
-            'ул ${place.details.mainInfo.street} д ${place.details.mainInfo.houseNumber}',
-            style: Theme.of(context)
-                .textTheme
-                .labelSmall!
-                .copyWith(fontSize: addressSize),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'ул ${place.details.mainInfo.street} д ${place.details.mainInfo.houseNumber}',
+                style: Theme.of(context)
+                    .textTheme
+                    .labelSmall!
+                    .copyWith(fontSize: addressSize),
+              ),
+              Text(
+                "${place.rasstoyanie} км",
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium!
+                    .copyWith(color: mainColor),
+              ),
+            ],
           ),
         ),
       ],

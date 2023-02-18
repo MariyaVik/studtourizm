@@ -37,6 +37,22 @@ mixin _$PlacesState on _PlacesState, Store {
     });
   }
 
+  late final _$placesNearUserAtom =
+      Atom(name: '_PlacesState.placesNearUser', context: context);
+
+  @override
+  List<Place> get placesNearUser {
+    _$placesNearUserAtom.reportRead();
+    return super.placesNearUser;
+  }
+
+  @override
+  set placesNearUser(List<Place> value) {
+    _$placesNearUserAtom.reportWrite(value, super.placesNearUser, () {
+      super.placesNearUser = value;
+    });
+  }
+
   late final _$errorAtom = Atom(name: '_PlacesState.error', context: context);
 
   @override
@@ -60,10 +76,29 @@ mixin _$PlacesState on _PlacesState, Store {
     return _$loadPlacesAsyncAction.run(() => super.loadPlaces());
   }
 
+  late final _$loadPlacesNearEventAsyncAction =
+      AsyncAction('_PlacesState.loadPlacesNearEvent', context: context);
+
+  @override
+  Future<void> loadPlacesNearEvent(String eventId) {
+    return _$loadPlacesNearEventAsyncAction
+        .run(() => super.loadPlacesNearEvent(eventId));
+  }
+
+  late final _$loadPlacesNearUserAsyncAction =
+      AsyncAction('_PlacesState.loadPlacesNearUser', context: context);
+
+  @override
+  Future<void> loadPlacesNearUser(double lat, double long) {
+    return _$loadPlacesNearUserAsyncAction
+        .run(() => super.loadPlacesNearUser(lat, long));
+  }
+
   @override
   String toString() {
     return '''
 places: ${places},
+placesNearUser: ${placesNearUser},
 error: ${error},
 isLoading: ${isLoading},
 hasError: ${hasError}
