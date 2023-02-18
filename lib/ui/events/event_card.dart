@@ -14,15 +14,14 @@ class EventCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(event.details!.type,
+        Text(getEventType(event.details!.type),
             style: const TextStyle(
                 color: mainColor, fontWeight: FontWeight.w600, fontSize: 12)),
         Text(event.details!.name,
             style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
         Padding(
           padding: const EdgeInsets.only(top: 6),
-          child: Text(
-              'ФГАОУ ВО Самарский национальный исследовательский университет имени академика С.П. Королева',
+          child: Text(event.nameVuz,
               style: TextStyle(fontWeight: FontWeight.w400, fontSize: 11)),
         ),
         Padding(

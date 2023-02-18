@@ -1,9 +1,9 @@
-// abstract class Filter {}
-
-// abstract class EntityFilter extends Filter {
-//   static const dormitory = 'dormitory';
-//   static const event = 'event';
-//   static const lab = 'lab';
-// }
-
 enum EntityFilter { dormitory, event, lab }
+
+enum EventsFilter { all, science, culture, prof }
+
+abstract class EventsFilterName {
+  static const String scientific = 'scientific';
+  static const String cultural = 'cultural';
+  static const String proforientation = 'proforientation';
+}

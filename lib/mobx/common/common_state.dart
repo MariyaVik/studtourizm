@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
 
@@ -13,11 +14,19 @@ abstract class _CommonState with Store {
   _CommonState(this.userGeo) {
     getCurrentLocation();
   }
+
+  @observable
+  DateTimeRange? dateRange;
+
   @observable
   EntityFilter entity = EntityFilter.dormitory;
 
   @observable
   Position? position;
+
+  @computed
+  String get dateRangeText =>
+      dateRange == null ? 'Выбрать даты' : dateRange.toString();
 
   @action
   Future<void> getCurrentLocation() async {

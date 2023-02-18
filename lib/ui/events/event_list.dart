@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../../mobx/events/events_state.dart';
 import '../../mobx/places/places_state.dart';
 import '../../models/event/event.dart';
+import '../navigation.dart';
 import 'event_card.dart';
 
 class EventsListWidget extends StatelessWidget {
@@ -44,10 +45,19 @@ class EventsListWidget extends StatelessWidget {
                             shrinkWrap: true,
                             itemCount: 5,
                             itemBuilder: (context, index) {
-                              return GestureDetector(
-                                onTap: () {},
-                                child: EventCard(
-                                  event: eventsProvider.events[index],
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).pushNamed(
+                                        AppNavRouteName.eventDetails,
+                                        arguments:
+                                            eventsProvider.events[index]);
+                                  },
+                                  child: EventCard(
+                                    event: eventsProvider.events[index],
+                                  ),
                                 ),
                               );
                             }),
