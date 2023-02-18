@@ -3,15 +3,15 @@ import '../models/filter/filter.dart';
 String getMealPlan(String plan) {
   switch (plan) {
     case 'breakfastAndDinner':
-      return 'Завтрак и ужин';
+      return MealFilterName.breakfastAndDinner;
     case 'full':
-      return 'Полный пансион';
+      return MealFilterName.full;
     case 'nothing':
-      return 'Не включено';
+      return MealFilterName.nothing;
     case 'breakfastOnly':
-      return 'Только завтрак';
+      return MealFilterName.breakfastOnly;
     default:
-      return 'Не включено';
+      return MealFilterName.nothing;
   }
 }
 

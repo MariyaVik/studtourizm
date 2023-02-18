@@ -34,26 +34,21 @@ class _SelectDateButtonState extends State<SelectDateButton> {
 
     return Observer(builder: (context) {
       final commonState = Provider.of<CommonState>(context);
-      return ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            textStyle:
-                Theme.of(context).textTheme.labelSmall!.copyWith(fontSize: 16),
-            elevation: 0,
-            backgroundColor: greyMegaLight,
-            foregroundColor: greyDark,
-            padding: const EdgeInsets.all(16),
-          ),
-          onPressed: () {
-            pickDateRange();
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset('assets/icons/cal.png'),
-              SizedBox(width: 8),
-              Text(commonState.dateRangeText),
-            ],
-          ));
+      return GestureDetector(
+        onTap: () {
+          pickDateRange();
+        },
+        child: Container(
+          padding: EdgeInsets.all(8),
+          decoration: BoxDecoration(
+              color: greyMegaLight, borderRadius: BorderRadius.circular(5)),
+          child: Row(mainAxisSize: MainAxisSize.min, children: [
+            Image.asset('assets/icons/cal.png'),
+            const SizedBox(width: 8),
+            Text(commonState.dateRangeText),
+          ]),
+        ),
+      );
     });
   }
 }

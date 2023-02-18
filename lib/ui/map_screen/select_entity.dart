@@ -37,33 +37,37 @@ class _SelectEntityWidgetState extends State<SelectEntityWidget> {
       return SizedBox(
         height: 50,
         width: MediaQuery.of(context).size.width,
-        child: ListView(
+        child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          children: [
-            const SizedBox(width: 16),
-            ..._chips
-                .map(
-                  (item) => Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: FilterChip(
-                      onSelected: (isSelected) {
-                        if (isSelected) {
-                          commonState.entity = item.filterName;
-                        }
-                        print(commonState.entity.toString());
-                        setState(() {});
-                      },
-                      selected: commonState.entity == item.filterName,
-                      label: Text(item.name),
-                      avatar: ImageIcon(AssetImage(item.iconName),
-                          color: commonState.entity == item.filterName
-                              ? mainColor
-                              : greyDark),
+          child: Row(
+            // physics: NeverScrollableScrollPhysics(),
+            // scrollDirection: Axis.horizontal,
+            children: [
+              const SizedBox(width: 16),
+              ..._chips
+                  .map(
+                    (item) => Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: FilterChip(
+                        onSelected: (isSelected) {
+                          if (isSelected) {
+                            commonState.entity = item.filterName;
+                          }
+                          print(commonState.entity.toString());
+                          setState(() {});
+                        },
+                        selected: commonState.entity == item.filterName,
+                        label: Text(item.name),
+                        avatar: ImageIcon(AssetImage(item.iconName),
+                            color: commonState.entity == item.filterName
+                                ? mainColor
+                                : greyDark),
+                      ),
                     ),
-                  ),
-                )
-                .toList(),
-          ],
+                  )
+                  .toList(),
+            ],
+          ),
         ),
       );
     });
