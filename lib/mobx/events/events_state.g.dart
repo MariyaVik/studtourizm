@@ -56,8 +56,8 @@ mixin _$EventsState on _EventsState, Store {
       AsyncAction('_EventsState.loadEvents', context: context);
 
   @override
-  Future<void> loadEvents() {
-    return _$loadEventsAsyncAction.run(() => super.loadEvents());
+  Future<void> loadAllEvents() {
+    return _$loadEventsAsyncAction.run(() => super.loadAllEvents());
   }
 
   @override

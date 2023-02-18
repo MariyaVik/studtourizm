@@ -4,6 +4,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../models/filter/filter.dart';
 import '../../services/get_user_geo.dart';
+import '../../ui/utils.dart';
 
 part 'common_state.g.dart';
 
@@ -19,14 +20,19 @@ abstract class _CommonState with Store {
   DateTimeRange? dateRange;
 
   @observable
+  DateTimeRange dateRangeOnlySel =
+      DateTimeRange(start: DateTime.now(), end: DateTime.utc(2023, 6, 2));
+
+  @observable
   EntityFilter entity = EntityFilter.dormitory;
 
   @observable
   Position? position;
 
   @computed
-  String get dateRangeText =>
-      dateRange == null ? 'Выбрать даты' : dateRange.toString();
+  String get dateRangeText => dateRange == null
+      ? 'Выбрать даты'
+      : '${dateFormat(dateRange!.start)} - ${dateFormat(dateRange!.end)}';
 
   @action
   Future<void> getCurrentLocation() async {

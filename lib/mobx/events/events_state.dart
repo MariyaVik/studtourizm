@@ -1,4 +1,6 @@
 import 'package:mobx/mobx.dart';
+import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../../models/event/event.dart';
 import '../../services/events_api.dart';
@@ -14,7 +16,7 @@ abstract class _EventsState with Store {
   List<Event> events = [];
 
   _EventsState(this.eventsRepository) {
-    loadEvents();
+    loadAllEvents();
   }
 
   @observable
@@ -26,10 +28,33 @@ abstract class _EventsState with Store {
   bool get hasError => error != '';
 
   @action
-  Future<void> loadEvents() async {
+  Future<void> loadEvents({int from = 0, int to = 0}) async {
+    if (from == 0 || to == 0) {
+      await loadAllEvents();
+    } else {
+      await loadAEventsInDate(from, to);
+    }
+  }
+
+  @action
+  Future<void> loadAllEvents() async {
+    print('все события');
     events = await eventsRepository
         .getAllEvents()
-        .then((places) => places)
+        .then((events) => events)
+        .catchError((e) {
+      error = e.toString();
+      print(error);
+      return <Event>[];
+    });
+  }
+
+  @action
+  Future<void> loadAEventsInDate(int from, int to) async {
+    print('по дате');
+    events = await eventsRepository
+        .getEventsInDateRande(from, to)
+        .then((events) => events)
         .catchError((e) {
       error = e.toString();
       print(error);

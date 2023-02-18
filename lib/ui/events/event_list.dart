@@ -30,6 +30,7 @@ class EventsListWidget extends StatelessWidget {
           Observer(builder: (context) {
             print('build: EventList');
             final eventsProvider = Provider.of<EventsState>(context);
+            print('количество событий: ${eventsProvider.events.length}');
 
             return eventsProvider.isLoading
                 ? const Center(child: CircularProgressIndicator())

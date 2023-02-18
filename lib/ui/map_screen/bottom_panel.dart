@@ -7,6 +7,7 @@ import '../../models/filter/filter.dart';
 import '../../theme/theme.dart';
 import '../events/event_list.dart';
 import '../places/places_list.dart';
+import 'select_date_button.dart';
 import 'select_entity.dart';
 
 class BottomPanel extends StatelessWidget {
@@ -36,6 +37,7 @@ class BottomPanel extends StatelessWidget {
                     height: 8,
                     width: 50,
                   ),
+                  SelectDateButton(),
                   const SelectEntityWidget(),
                   Observer(builder: (context) {
                     return Expanded(
