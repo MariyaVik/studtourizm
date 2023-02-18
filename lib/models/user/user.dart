@@ -11,16 +11,17 @@ class User {
   String? role;
   String? email;
   String? password;
+  Map? bids;
 
-  User({
-    this.id,
-    this.email,
-    this.fatherName,
-    this.name,
-    this.password,
-    this.role,
-    this.surname,
-  });
+  User(
+      {this.id,
+      this.email,
+      this.fatherName,
+      this.name,
+      this.password,
+      this.role,
+      this.surname,
+      this.bids});
 
   @override
   String toString() {

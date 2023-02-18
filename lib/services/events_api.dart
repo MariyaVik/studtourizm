@@ -11,7 +11,7 @@ class EventsAPI {
           await dio.get('https://montizar.ru/api/event.php?function=event');
       final List<Event> events =
           response.data.map<Event>((e) => Event.fromJson(e)).toList();
-      return events;
+      return events.sublist(0, 6);
     } on DioError catch (e) {
       throw 'Something went wrong :(\n ${e.message}';
     }

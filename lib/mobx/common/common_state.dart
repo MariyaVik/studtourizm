@@ -4,6 +4,8 @@ import 'package:mobx/mobx.dart';
 
 import '../../models/filter/filter.dart';
 import '../../models/region/region.dart';
+import '../../models/tab.dart';
+import '../../models/user/user.dart';
 import '../../services/get_user_geo.dart';
 import '../../ui/utils.dart';
 
@@ -16,6 +18,15 @@ abstract class _CommonState with Store {
   _CommonState(this.userGeo) {
     // getCurrentLocation();
   }
+
+  @observable
+  int activeTabIndex = AppTab.map.index;
+
+  @observable
+  User user = User();
+
+  @observable
+  bool isAuth = false;
 
   @observable
   Region currentRegion =

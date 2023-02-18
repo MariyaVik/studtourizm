@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../../models/user/user.dart';
 import '../../theme/theme.dart';
@@ -16,10 +18,10 @@ class AuthPage extends StatefulWidget {
 class _AuthPageState extends State<AuthPage> {
   final _formKey = GlobalKey<FormState>();
   final focusPassword = FocusNode();
-  User user = User();
 
   @override
   Widget build(BuildContext context) {
+    // User user = Provider.of<CommonState>(context, listen: false).user;
     return Scaffold(
       body: _buildForm(),
     );
@@ -83,7 +85,7 @@ class _AuthPageState extends State<AuthPage> {
         }
       },
       onSaved: (String? value) {
-        user.email = value;
+        Provider.of<CommonState>(context, listen: false).user.email = value;
       },
       textInputAction: TextInputAction.next,
       // onFieldSubmitted: (v) {
@@ -116,7 +118,7 @@ class _AuthPageState extends State<AuthPage> {
         }
       },
       onSaved: (String? value) {
-        user.password = value;
+        Provider.of<CommonState>(context, listen: false).user.password = value;
       },
       // focusNode: focusPassword,
       onFieldSubmitted: (v) {
@@ -137,7 +139,9 @@ class _AuthPageState extends State<AuthPage> {
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      print(user);
+      print(Provider.of<CommonState>(context, listen: false).user);
+      Provider.of<CommonState>(context).isAuth = true;
+      Navigator.of(context).pop();
     }
   }
 }

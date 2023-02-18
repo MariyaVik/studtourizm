@@ -6,6 +6,7 @@ import 'package:studtourizm/ui/app.dart';
 import 'package:studtourizm/ui/events/event_card.dart';
 import 'package:studtourizm/ui/navigation.dart';
 
+import '../../mobx/common/common_state.dart';
 import '../../models/event/event.dart';
 import '../../theme/theme.dart';
 import '../places/places_list.dart';
@@ -57,8 +58,11 @@ class EventDetailsPage extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
                     onPressed: () {
-                      mainNavigatorKey.currentState!
-                          .pushNamed(AppNavRouteName.auth);
+                      if (!Provider.of<CommonState>(context, listen: false)
+                          .isAuth) {
+                        mainNavigatorKey.currentState!
+                            .pushNamed(AppNavRouteName.auth);
+                      } else {}
                     },
                     child: Text('Оставить заявку')),
               ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../theme/theme.dart';
+import 'bids_screen/bids_page.dart';
 import 'navigation.dart';
 import 'profile/profile_page.dart';
 
@@ -47,7 +50,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 onGenerateRoute: MapNestedNavigation.onGenerateRoute,
               ),
               Container(color: mainColor),
-              Container(color: greyLight),
+              BidsPage(),
               ProfilePage(),
             ]),
         bottomNavigationBar: BottomNavigationBar(
@@ -56,6 +59,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               setState(() {
                 _currentTabIndex = currentIndex;
                 _tabController.animateTo(_currentTabIndex);
+                Provider.of<CommonState>(context, listen: false)
+                    .activeTabIndex = currentIndex;
               });
             },
             currentIndex: _currentTabIndex,
