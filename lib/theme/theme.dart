@@ -42,6 +42,11 @@ TextTheme _textLight(TextTheme base) {
       fontWeight: FontWeight.w500,
       color: backColor,
     ),
+    headlineLarge: base.headlineMedium!.copyWith(
+      fontSize: 36,
+      fontWeight: FontWeight.w700,
+      color: backColor,
+    ),
     bodyMedium: base.bodyMedium!.copyWith(
       fontSize: 14,
       fontFamily: 'Open Sans',

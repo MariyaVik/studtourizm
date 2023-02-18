@@ -19,7 +19,7 @@ class CloseButtonMy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
         right: 16,
-        top: 16,
+        top: 64,
         child: ElevatedButton(
           onPressed: () {
             Navigator.of(context).pushReplacementNamed(routeName);
