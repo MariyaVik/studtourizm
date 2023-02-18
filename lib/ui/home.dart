@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/theme.dart';
 import 'navigation.dart';
+import 'profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               Container(color: mainColor),
               Container(color: greyLight),
-              Container(color: backColor),
+              ProfilePage(),
             ]),
         bottomNavigationBar: BottomNavigationBar(
             onTap: (currentIndex) {
