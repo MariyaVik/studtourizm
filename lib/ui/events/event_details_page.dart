@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:studtourizm/models/event/event_details.dart';
+import 'package:studtourizm/ui/app.dart';
 import 'package:studtourizm/ui/events/event_card.dart';
+import 'package:studtourizm/ui/navigation.dart';
 
 import '../../models/event/event.dart';
 import '../../theme/theme.dart';
@@ -48,6 +50,15 @@ class EventDetailsPage extends StatelessWidget {
                 ),
               ),
               MoreInfo(details: currentEvent.details!),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      mainNavigatorKey.currentState!
+                          .pushNamed(AppNavRouteName.auth);
+                    },
+                    child: Text('Оставить заявку')),
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../../mobx/events/events_state.dart';
 import '../../mobx/places/places_state.dart';
@@ -30,7 +31,15 @@ class EventsListWidget extends StatelessWidget {
           Observer(builder: (context) {
             print('build: EventList');
             final eventsProvider = Provider.of<EventsState>(context);
-            print('количество событий: ${eventsProvider.events.length}');
+            // print(
+            //     'выбранная дата начала ${Provider.of<CommonState>(context).dateRange?.start.toString()}');
+            // print(
+            //     'выбранная дата конца ${Provider.of<CommonState>(context).dateRange?.end.toString()}');
+            // print('количество событий: ${eventsProvider.events.length}');
+            // print(
+            //     'дата начала первого в списке события: ${eventsProvider.events[0].details?.dates?.from ?? 0}');
+            // print(
+            //     'дата конца первого в списке события: ${eventsProvider.events[0].details?.dates?.to ?? 0}');
 
             return eventsProvider.isLoading
                 ? const Center(child: CircularProgressIndicator())
@@ -44,8 +53,10 @@ class EventsListWidget extends StatelessWidget {
                         child: ListView.builder(
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
-                            itemCount: 5,
+                            itemCount: eventsProvider.events.length,
                             itemBuilder: (context, index) {
+                              print(' рисуем карточку события');
+
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 8),

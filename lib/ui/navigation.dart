@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studtourizm/models/event/event_details.dart';
 import 'package:studtourizm/models/place/place_details.dart';
+import 'package:studtourizm/ui/auth/auth_page.dart';
 
 import '../models/event/event.dart';
 import 'events/event_details_page.dart';
@@ -14,6 +15,7 @@ abstract class AppNavRouteName {
   static const map = 'map';
   static const placeDetails = 'map/placeDetails';
   static const eventDetails = 'map/eventDetails';
+  static const auth = 'auth';
 }
 
 class AppNavigation {
@@ -25,6 +27,8 @@ class AppNavigation {
         return MaterialPageRoute(builder: (context) => const OnboardingPage());
       case AppNavRouteName.home:
         return MaterialPageRoute(builder: (context) => const HomePage());
+      case AppNavRouteName.auth:
+        return MaterialPageRoute(builder: (context) => const AuthPage());
 
       default:
         return MaterialPageRoute(
