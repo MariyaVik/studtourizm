@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-import '../../../theme/theme.dart';
+import '../../theme/theme.dart';
 
 class CloseButtonMy extends StatelessWidget {
   final Color backColor;
   final Color xColor;
   final String routeName;
+  final double padding;
   const CloseButtonMy(
       {required this.routeName,
       this.backColor = greyLight,
       this.xColor = Colors.white,
+      this.padding = 8,
       Key? key})
       : super(key: key);
 
@@ -24,7 +26,7 @@ class CloseButtonMy extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
               shape: const CircleBorder(),
-              padding: const EdgeInsets.all(12),
+              padding: EdgeInsets.all(padding),
               backgroundColor: backColor,
               elevation: 0),
           child: Icon(Icons.close, color: xColor),

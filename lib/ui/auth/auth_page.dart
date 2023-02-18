@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../models/user/user.dart';
 import '../../theme/theme.dart';
-import '../common.dart/big_full_logo.dart';
+import '../common/big_full_logo.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});

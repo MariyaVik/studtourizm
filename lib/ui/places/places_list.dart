@@ -29,28 +29,31 @@ class PlacesListWidget extends StatelessWidget {
                   ? Center(
                       child: Text(placesProvider.error),
                     )
-                  : Builder(builder: (context) {
-                      List<Place> pl = placesProvider.places;
-                      pl.shuffle();
-                      int ind = Random().nextInt(200);
-                      pl = pl.sublist(ind, ind + 6);
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(top: 8, left: 8, right: 8),
-                        child: ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount:
-                                pl.length, //placesProvider.places.length,
-                            itemBuilder: (context, index) {
-                              // print(placesProvider.places[index]);
-                              return GestureDetector(
-                                onTap: () {},
-                                child: PlaceCard(place: pl[index]),
-                              );
-                            }),
-                      );
-                    });
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 8, left: 8, right: 8),
+                      child: ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: placesProvider.places.length,
+                          itemBuilder: (context, index) {
+                            print(' рисуем карточку события');
+
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                      AppNavRouteName.eventDetails,
+                                      arguments: placesProvider.places[index]);
+                                },
+                                child: PlaceCard(
+                                  place: placesProvider.places[index],
+                                ),
+                              ),
+                            );
+                          }),
+                    );
         }));
   }
 }

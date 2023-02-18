@@ -41,7 +41,7 @@ class _MapWithMarkersState extends State<MapWithMarkers> {
           }
           return Marker(
               point: LatLng(e.details.mainInfo.coordinates.latitude,
-                  e.details.mainInfo.coordinates.latitude),
+                  e.details.mainInfo.coordinates.longitude),
               builder: (context) {
                 return GestureDetector(
                   onTap: () {},

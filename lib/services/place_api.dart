@@ -16,4 +16,28 @@ class PlaceAPI {
       throw 'Something went wrong :(\n ${e.message}';
     }
   }
+
+  Future<List<Place>> getPlacesNearEvent(String eventId) async {
+    try {
+      final response = await dio.get(
+          'https://montizar.ru/api/event.php?function=sobitie&id=${eventId}');
+      final List<Place> places =
+          response.data.map<Place>((e) => Place.fromJson(e)).toList();
+      return places;
+    } on DioError catch (e) {
+      throw 'Something went wrong :(\n ${e.message}';
+    }
+  }
+
+  Future<List<Place>> getPlacesNearUser(double lat, double long) async {
+    try {
+      final response = await dio.get(
+          'https://montizar.ru/api/dormitori.php?function=radius&lat=${lat}&long=${long}');
+      final List<Place> places =
+          response.data.map<Place>((e) => Place.fromJson(e)).toList();
+      return places;
+    } on DioError catch (e) {
+      throw 'Something went wrong :(\n ${e.message}';
+    }
+  }
 }

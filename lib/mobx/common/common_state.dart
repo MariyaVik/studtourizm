@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../models/filter/filter.dart';
+import '../../models/region/region.dart';
 import '../../services/get_user_geo.dart';
 import '../../ui/utils.dart';
 
@@ -13,8 +14,14 @@ class CommonState = _CommonState with _$CommonState;
 abstract class _CommonState with Store {
   final UserGeo userGeo;
   _CommonState(this.userGeo) {
-    getCurrentLocation();
+    // getCurrentLocation();
   }
+
+  @observable
+  Region currentRegion =
+      Region(code: 77, name: 'Москва', codeISO: RegionAbb.msk);
+  @observable
+  Region? onlySelReg;
 
   @observable
   DateTimeRange? dateRange;

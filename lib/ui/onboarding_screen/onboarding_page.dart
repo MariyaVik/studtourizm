@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:studtourizm/ui/navigation.dart';
 
 import '../../theme/theme.dart';
-import 'common/close_button.dart';
+import '../common/close_button.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -32,9 +33,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   child: const Center(child: Text('Onboarding'))),
             ]),
             CloseButtonMy(
-              routeName: 'home',
+              routeName: AppNavRouteName.selectRegion,
               xColor: greyDark,
               backColor: Colors.white.withOpacity(0.6),
+              padding: 12,
             )
           ],
         ),

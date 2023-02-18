@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:studtourizm/ui/app.dart';
+import 'package:studtourizm/ui/navigation.dart';
 
 import '../../theme/theme.dart';
 import 'bottom_panel.dart';
@@ -23,7 +25,10 @@ class MapPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                mainNavigatorKey.currentState!
+                    .pushNamed(AppNavRouteName.selectRegion);
+              },
               icon: Image.asset('assets/icons/map.png',
                   height: 24, color: mainColor)),
         ],

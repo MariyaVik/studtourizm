@@ -13,6 +13,9 @@ abstract class _PlacesState with Store {
   @observable
   List<Place> places = [];
 
+  @observable
+  List<Place> placesNearUser = [];
+
   _PlacesState(this.placesRepository) {
     loadPlaces();
   }
@@ -30,6 +33,32 @@ abstract class _PlacesState with Store {
     places = await placesRepository
         .getAllPlaces()
         .then((places) => places)
+        .catchError((e) {
+      error = e.toString();
+      print(error);
+      return <Place>[];
+    });
+  }
+
+  @action
+  Future<void> loadPlacesNearEvent(String eventId) async {
+    print('по дате');
+    places = await placesRepository
+        .getPlacesNearEvent(eventId)
+        .then((places) => places)
+        .catchError((e) {
+      error = e.toString();
+      print(error);
+      return <Place>[];
+    });
+  }
+
+  @action
+  Future<void> loadPlacesNearUser(double lat, double long) async {
+    print('по локации');
+    places = await placesRepository
+        .getPlacesNearUser(lat, long)
+        .then((places) => placesNearUser)
         .catchError((e) {
       error = e.toString();
       print(error);

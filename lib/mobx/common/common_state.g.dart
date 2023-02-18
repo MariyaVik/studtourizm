@@ -17,6 +17,38 @@ mixin _$CommonState on _CommonState, Store {
               name: '_CommonState.dateRangeText'))
           .value;
 
+  late final _$currentRegionAtom =
+      Atom(name: '_CommonState.currentRegion', context: context);
+
+  @override
+  Region get currentRegion {
+    _$currentRegionAtom.reportRead();
+    return super.currentRegion;
+  }
+
+  @override
+  set currentRegion(Region value) {
+    _$currentRegionAtom.reportWrite(value, super.currentRegion, () {
+      super.currentRegion = value;
+    });
+  }
+
+  late final _$onlySelRegAtom =
+      Atom(name: '_CommonState.onlySelReg', context: context);
+
+  @override
+  Region? get onlySelReg {
+    _$onlySelRegAtom.reportRead();
+    return super.onlySelReg;
+  }
+
+  @override
+  set onlySelReg(Region? value) {
+    _$onlySelRegAtom.reportWrite(value, super.onlySelReg, () {
+      super.onlySelReg = value;
+    });
+  }
+
   late final _$dateRangeAtom =
       Atom(name: '_CommonState.dateRange', context: context);
 
@@ -92,6 +124,8 @@ mixin _$CommonState on _CommonState, Store {
   @override
   String toString() {
     return '''
+currentRegion: ${currentRegion},
+onlySelReg: ${onlySelReg},
 dateRange: ${dateRange},
 dateRangeOnlySel: ${dateRangeOnlySel},
 entity: ${entity},

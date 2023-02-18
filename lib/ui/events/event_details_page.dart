@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:studtourizm/mobx/places/places_state.dart';
 import 'package:studtourizm/models/event/event_details.dart';
 import 'package:studtourizm/ui/app.dart';
 import 'package:studtourizm/ui/events/event_card.dart';
@@ -17,6 +19,7 @@ class EventDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<PlacesState>(context).loadPlacesNearEvent(currentEvent.id);
     print('build: EventDetailsPage');
     return Scaffold(
       appBar: AppBar(

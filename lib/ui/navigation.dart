@@ -8,9 +8,11 @@ import 'events/event_details_page.dart';
 import 'home.dart';
 import 'map_screen/map_page.dart';
 import 'onboarding_screen/onboarding_page.dart';
+import 'select_region/select_region_page.dart';
 
 abstract class AppNavRouteName {
   static const onboarding = 'onboarding';
+  static const selectRegion = 'selectRegion';
   static const home = 'home';
   static const map = 'map';
   static const placeDetails = 'map/placeDetails';
@@ -29,6 +31,9 @@ class AppNavigation {
         return MaterialPageRoute(builder: (context) => const HomePage());
       case AppNavRouteName.auth:
         return MaterialPageRoute(builder: (context) => const AuthPage());
+      case AppNavRouteName.selectRegion:
+        return MaterialPageRoute(
+            builder: (context) => const SelectRegionPage());
 
       default:
         return MaterialPageRoute(
