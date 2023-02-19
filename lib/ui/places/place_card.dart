@@ -33,10 +33,11 @@ class PlaceCard extends StatelessWidget {
                         ),
                 ),
                 Positioned(
+                    right: 16,
                     child: IconButton(
-                  onPressed: () {},
-                  icon: ImageIcon(AssetImage('assets/icons/heart.png')),
-                ))
+                      onPressed: () {},
+                      icon: ImageIcon(AssetImage('assets/icons/heart.png')),
+                    ))
               ],
             ),
             Padding(

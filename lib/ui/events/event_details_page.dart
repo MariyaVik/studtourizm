@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:provider/provider.dart';
 import 'package:studtourizm/mobx/places/places_state.dart';
 import 'package:studtourizm/models/event/event_details.dart';
@@ -8,10 +9,11 @@ import 'package:studtourizm/ui/navigation.dart';
 
 import '../../mobx/common/common_state.dart';
 import '../../models/event/event.dart';
+import '../../services/notifition_api.dart';
 import '../../theme/theme.dart';
 import '../places/places_list.dart';
 
-class EventDetailsPage extends StatelessWidget {
+class EventDetailsPage extends StatefulWidget {
   final Event currentEvent;
   EventDetailsPage({
     required this.currentEvent,
@@ -19,8 +21,27 @@ class EventDetailsPage extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<EventDetailsPage> createState() => _EventDetailsPageState();
+}
+
+class _EventDetailsPageState extends State<EventDetailsPage> {
+  @override
+  void initState() {
+    super.initState();
+    NotifitionAPI.init();
+    listenNotification();
+  }
+
+  void listenNotification() =>
+      NotifitionAPI.onNotif.stream.listen(onClickNotif);
+  void onClickNotif(NotificationResponse? details) {
+    mainNavigatorKey.currentState!.pushNamed(AppNavRouteName.notif);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Provider.of<PlacesState>(context).loadPlacesNearEvent(currentEvent.id);
+    Provider.of<PlacesState>(context)
+        .loadPlacesNearEvent(widget.currentEvent.id);
     print('build: EventDetailsPage');
     return Scaffold(
       appBar: AppBar(
@@ -49,11 +70,11 @@ class EventDetailsPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: EventCard(
-                  event: currentEvent,
+                  event: widget.currentEvent,
                   dataCompact: false,
                 ),
               ),
-              MoreInfo(details: currentEvent.details!),
+              MoreInfo(details: widget.currentEvent.details!),
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ElevatedButton(
@@ -62,7 +83,17 @@ class EventDetailsPage extends StatelessWidget {
                           .isAuth) {
                         mainNavigatorKey.currentState!
                             .pushNamed(AppNavRouteName.auth);
-                      } else {}
+                      } else {
+                        NotifitionAPI.showScheduleNatifition(
+                            title: 'Студтуризм.рф',
+                            body: 'Ваша заявка одобрена университетом!',
+                            showedText: 'Вот тебе 5 баллов',
+                            scheduleDate:
+                                DateTime.now().add(Duration(seconds: 5)));
+                        final SnackBar snackBar =
+                            SnackBar(content: Text('Заявка подана'));
+                        ScaffoldMessenger.of(context)..showSnackBar(snackBar);
+                      }
                     },
                     child: Text('Оставить заявку')),
               ),

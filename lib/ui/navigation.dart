@@ -41,6 +41,8 @@ class AppNavigation {
       case AppNavRouteName.selectRegion:
         return MaterialPageRoute(
             builder: (context) => const SelectRegionPage());
+      case AppNavRouteName.notif:
+        return MaterialPageRoute(builder: (context) => const NotifList());
 
       default:
         return MaterialPageRoute(
@@ -85,8 +87,6 @@ class ProfNestedNavigation {
     switch (settings.name) {
       case AppNavRouteName.profile:
         return MaterialPageRoute(builder: (context) => const ProfilePage());
-      case AppNavRouteName.notif:
-        return MaterialPageRoute(builder: (context) => const NotifList());
 
       default:
         return MaterialPageRoute(

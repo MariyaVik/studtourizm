@@ -4,6 +4,7 @@ import 'package:studtourizm/services/notifition_api.dart';
 import 'package:studtourizm/ui/navigation.dart';
 
 import '../../theme/theme.dart';
+import '../app.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _ProfilePageState extends State<ProfilePage> {
   void listenNotification() =>
       NotifitionAPI.onNotif.stream.listen(onClickNotif);
   void onClickNotif(NotificationResponse? details) {
-    Navigator.of(context).pushNamed(AppNavRouteName.notif);
+    mainNavigatorKey.currentState!.pushNamed(AppNavRouteName.notif);
   }
 
   @override
@@ -54,10 +55,20 @@ class _ProfilePageState extends State<ProfilePage> {
       ),
       body: Center(
         child: ElevatedButton(
-            onPressed: () => NotifitionAPI.showNatifition(
-                title: 'Студтуризм.рф',
-                body: 'Ваша заявка одобрена университетом!',
-                showedText: 'Вот тебе 5 баллов'),
+            onPressed: () {
+              // NotifitionAPI.showNatifition(
+              //     title: 'Студтуризм.рф',
+              //     body: 'Ваша заявка одобрена университетом!',
+              //     showedText: 'Вот тебе 5 баллов');
+              NotifitionAPI.showScheduleNatifition(
+                  title: 'Студтуризм.рф',
+                  body: 'Ваша заявка одобрена университетом!',
+                  showedText: 'Вот тебе 5 баллов',
+                  scheduleDate: DateTime.now().add(Duration(seconds: 5)));
+              final SnackBar snackBar =
+                  SnackBar(content: Text('Заявка подана'));
+              ScaffoldMessenger.of(context)..showSnackBar(snackBar);
+            },
             child: Text('Отправить уведомление')),
       ),
     );

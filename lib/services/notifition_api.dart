@@ -1,5 +1,7 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest.dart' as tz;
 
 class NotifitionAPI {
   static final _notif = FlutterLocalNotificationsPlugin();
@@ -31,10 +33,32 @@ class NotifitionAPI {
     );
   }
 
-  static Future showNatifition(
-          {int id = 0,
-          String? title,
-          String? body,
-          String? showedText}) async =>
+  static Future showNatifition({
+    int id = 0,
+    String? title,
+    String? body,
+    String? showedText,
+  }) async =>
       _notif.show(id, title, body, await _notifDetails(), payload: showedText);
+
+  static Future showScheduleNatifition({
+    int id = 0,
+    String? title,
+    String? body,
+    String? showedText,
+    required DateTime scheduleDate,
+  }) async {
+    tz.initializeTimeZones();
+    _notif.zonedSchedule(
+      id,
+      title,
+      body,
+      tz.TZDateTime.from(scheduleDate, tz.local),
+      await _notifDetails(),
+      payload: showedText,
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+    );
+  }
 }

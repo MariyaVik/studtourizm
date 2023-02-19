@@ -16,7 +16,7 @@ class Place {
   final String universityId;
   @JsonKey(name: 'name_vuz', defaultValue: 'nameVuz')
   final String nameVuz;
-  @JsonKey(defaultValue: 6.2)
+  @JsonKey(defaultValue: 1.3)
   final double rasstoyanie;
 
   Place({
@@ -33,7 +33,7 @@ class Place {
       this.id = 'id',
       this.universityId = 'universityId',
       this.nameVuz = 'nameVuz',
-      this.rasstoyanie = 6.4});
+      this.rasstoyanie = 2.8});
 
   static PlaceDetails _fromJson(Map<String, dynamic>? json) =>
       json == null ? const PlaceDetails.none() : PlaceDetails.fromJson(json);
