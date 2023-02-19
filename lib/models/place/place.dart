@@ -14,6 +14,8 @@ class Place {
   final String id;
   @JsonKey(defaultValue: 'universityId')
   final String universityId;
+  @JsonKey(name: 'name_vuz', defaultValue: 'nameVuz')
+  final String nameVuz;
   @JsonKey(defaultValue: 6.2)
   final double rasstoyanie;
 
@@ -22,6 +24,7 @@ class Place {
     required this.id,
     required this.universityId,
     required this.rasstoyanie,
+    required this.nameVuz,
     // required this.rooms,
   });
 
@@ -29,6 +32,7 @@ class Place {
       {this.details = const PlaceDetails.none(),
       this.id = 'id',
       this.universityId = 'universityId',
+      this.nameVuz = 'nameVuz',
       this.rasstoyanie = 6.4});
 
   static PlaceDetails _fromJson(Map<String, dynamic>? json) =>

@@ -32,7 +32,7 @@ class PlaceMainInfo extends StatelessWidget {
           ),
         ),
         Text(
-          'ФГАОУ ВО Самарский национальный исследовательский университет имени академика С.П. Королева',
+          place.nameVuz,
           style: Theme.of(context)
               .textTheme
               .bodySmall!
@@ -45,19 +45,22 @@ class PlaceMainInfo extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'ул ${place.details.mainInfo.street} д ${place.details.mainInfo.houseNumber}',
-                style: Theme.of(context)
-                    .textTheme
-                    .labelSmall!
-                    .copyWith(fontSize: addressSize),
+              Expanded(
+                child: Text(
+                  'ул ${place.details.mainInfo.street} д ${place.details.mainInfo.houseNumber}',
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelSmall!
+                      .copyWith(fontSize: addressSize),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
               Text(
                 "${place.rasstoyanie} км",
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium!
-                    .copyWith(color: mainColor),
+                    .copyWith(color: mainColor, fontSize: addressSize),
               ),
             ],
           ),

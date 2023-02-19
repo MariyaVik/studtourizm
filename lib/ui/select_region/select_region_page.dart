@@ -38,7 +38,9 @@ class SelectRegionPage extends StatelessWidget {
                           onTap: () async {
                             await Provider.of<CommonState>(context,
                                     listen: false)
-                                .getCurrentLocation();
+                                .getCurrentLocation()
+                                .whenComplete(() => print(
+                                    'координаты получены: ${Provider.of<CommonState>(context, listen: false).position}'));
                             var coord =
                                 Provider.of<CommonState>(context, listen: false)
                                     .position;
