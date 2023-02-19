@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:studtourizm/models/event/event_details.dart';
-import 'package:studtourizm/models/place/place_details.dart';
 import 'package:studtourizm/ui/auth/auth_page.dart';
 import 'package:studtourizm/ui/profile/profile_page.dart';
 
 import '../models/event/event.dart';
 import '../models/place/place.dart';
+import '../models/room/room.dart';
 import 'events/event_details_page.dart';
 import 'home.dart';
 import 'map_screen/map_page.dart';
 import 'onboarding_screen/onboarding_page.dart';
 import 'places/place_details.dart';
 import 'profile/notif_page.dart';
+import 'rooms/room_details.dart';
 import 'select_region/select_region_page.dart';
 
 abstract class AppNavRouteName {
@@ -24,6 +24,7 @@ abstract class AppNavRouteName {
   static const auth = 'auth';
   static const profile = 'profile';
   static const notif = 'profile/notif';
+  static const roomDetails = 'map/placeDetails/roomDetails';
 }
 
 class AppNavigation {
@@ -64,6 +65,10 @@ class MapNestedNavigation {
         final arg = settings.arguments as Event;
         return MaterialPageRoute(
             builder: (context) => EventDetailsPage(currentEvent: arg));
+      case AppNavRouteName.roomDetails:
+        final arg = settings.arguments as Room;
+        return MaterialPageRoute(
+            builder: (context) => RoomDetailsPage(room: arg));
 
       default:
         return MaterialPageRoute(

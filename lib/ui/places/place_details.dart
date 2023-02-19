@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../../models/place/place.dart';
 import '../../models/room/room.dart';
+import '../../models/room/room_data_range.dart';
+import '../../models/room/room_details.dart';
 import '../../theme/theme.dart';
 import '../navigation.dart';
+import '../rooms/rooms_list.dart';
 import '../utils.dart';
 import 'place_card.dart';
 import 'place_main_info.dart';
@@ -95,47 +98,27 @@ class PlaceDetailsPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Text('Комнаты', style: Theme.of(context).textTheme.titleLarge),
         ),
-        // Padding(
-        //   padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
-        //   child: RoomsList(
-        //     room: Room(
-        //         details: RoomDetails(
-        //             dateRange: RoomDateRange(from: 5, to: 7),
-        //             type: '2-х местный номер',
-        //             isFree: false,
-        //             amount: '3',
-        //             price: '800',
-        //             description: 'description',
-        //             photos: [
-        //           "https://stud-files.sabir.pro/files/1Z8I3pI1LK-d19bfdc7942ed901949e315cbe93458a738ba4d9d7b4223b7b06e01421457975.jpg",
-        //           "https://stud-files.sabir.pro/files/1Z8I3pI1LK-cfe4ce6078cb070983d761dc986eda295fa100412c302573ef3bdd4f68b205d7.jpg",
-        //           "https://stud-files.sabir.pro/files/1Z8I3pI1LK-62ff28a52c058e7f42dcfbb3daa7458b9ee3458a3f5e8cd593bf5ab4ad99f279.jpg",
-        //           "https://stud-files.sabir.pro/files/1Z8I3pI1LK-599b4e92ee643bfab68605aecdc8e3f1298575096a3978d92966b4c43e8306c0.jpg"
-        //         ])),
-        //   ),
-        // )
+        Padding(
+          padding: const EdgeInsets.only(right: 16, left: 16, bottom: 16),
+          child: RoomsList(
+            room: Room(
+                details: RoomDetails(
+                    dateRange: RoomDateRange(from: 5, to: 7),
+                    type: '2-х местный номер',
+                    isFree: false,
+                    amount: '3',
+                    price: '800',
+                    description: 'description',
+                    photos: [
+                  "https://stud-files.sabir.pro/files/1Z8I3pI1LK-d19bfdc7942ed901949e315cbe93458a738ba4d9d7b4223b7b06e01421457975.jpg",
+                  "https://stud-files.sabir.pro/files/1Z8I3pI1LK-cfe4ce6078cb070983d761dc986eda295fa100412c302573ef3bdd4f68b205d7.jpg",
+                  "https://stud-files.sabir.pro/files/1Z8I3pI1LK-62ff28a52c058e7f42dcfbb3daa7458b9ee3458a3f5e8cd593bf5ab4ad99f279.jpg",
+                  "https://stud-files.sabir.pro/files/1Z8I3pI1LK-599b4e92ee643bfab68605aecdc8e3f1298575096a3978d92966b4c43e8306c0.jpg"
+                ])),
+          ),
+        )
         // RoomCard(),
       ]),
     );
   }
 }
-
-// class RoomsList extends StatelessWidget {
-//   RoomsList({required this.room, Key? key}) : super(key: key);
-
-//   final Room room;
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       physics: const NeverScrollableScrollPhysics(),
-//       shrinkWrap: true,
-//       itemBuilder: (context, index) {
-//         return GestureDetector(
-//             onTap: () {
-//             },
-//             child: RoomCard());
-//       },
-//       itemCount: 3,
-//     );
-//   }
-// }
