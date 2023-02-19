@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
+import '../../mobx/common/common_state.dart';
 import '../../mobx/places/places_state.dart';
 import '../../models/place/place.dart';
 import '../navigation.dart';
@@ -16,6 +17,15 @@ class PlacesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void load() async {
+      var coord = Provider.of<CommonState>(context, listen: false).position;
+      await Provider.of<PlacesState>(context, listen: false)
+          .loadPlacesNearUser(coord!.latitude, coord.longitude);
+      print('загрузил ближжайшие');
+    }
+
+    load();
+
     return SingleChildScrollView(
         controller: controller,
         physics: const ScrollPhysics(),

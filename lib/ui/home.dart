@@ -52,7 +52,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               RatingPage(),
               BidsPage(),
-              ProfilePage(),
+              const Navigator(
+                initialRoute: ProfNestedNavigation.initialRoute,
+                onGenerateRoute: ProfNestedNavigation.onGenerateRoute,
+              ),
             ]),
         bottomNavigationBar: BottomNavigationBar(
             onTap: (currentIndex) {

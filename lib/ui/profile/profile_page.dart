@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:studtourizm/services/notifition_api.dart';
+import 'package:studtourizm/ui/navigation.dart';
 
 import '../../theme/theme.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  @override
+  void initState() {
+    super.initState();
+    NotifitionAPI.init();
+    listenNotification();
+  }
+
+  void listenNotification() =>
+      NotifitionAPI.onNotif.stream.listen(onClickNotif);
+  void onClickNotif(NotificationResponse? details) {
+    Navigator.of(context).pushNamed(AppNavRouteName.notif);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +41,11 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
         actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppNavRouteName.notif);
+              },
+              icon: Icon(Icons.notifications, size: 24, color: mainColor)),
           IconButton(
               onPressed: () {},
               icon: Image.asset('assets/icons/exit.png',

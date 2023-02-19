@@ -49,16 +49,14 @@ class BottomPanel extends StatelessWidget {
 
                     Divider(),
                     // const SelectEntityWidget(),
-                    // Observer(builder: (context) {
-                    //   return Expanded(
-                    //     child: Provider.of<CommonState>(context).entity ==
-                    //             EntityFilter.event
-                    //         ? EventsListWidget(controller: scrollController)
-                    //         : PlacesListWidget(
-                    //             controller: scrollController,
-                    //           ),
-                    //   );
-                    // })
+                    Observer(builder: (context) {
+                      return Expanded(
+                        child: Provider.of<CommonState>(context).entity ==
+                                EntityFilter.event
+                            ? EventsListWidget(controller: scrollController)
+                            : PlacesListWidget(controller: scrollController),
+                      );
+                    })
                   ],
                 ),
               ),

@@ -22,6 +22,7 @@ dependencies:
   flutter_map_marker_cluster: ^1.0.2
   flutter_local_notifications: ^13.0.0
   dropdown_button2: ^1.9.2
+  rxdart:
   
 
 dev_dependencies:

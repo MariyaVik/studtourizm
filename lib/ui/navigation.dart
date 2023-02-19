@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:studtourizm/models/event/event_details.dart';
 import 'package:studtourizm/models/place/place_details.dart';
 import 'package:studtourizm/ui/auth/auth_page.dart';
+import 'package:studtourizm/ui/profile/profile_page.dart';
 
 import '../models/event/event.dart';
 import 'events/event_details_page.dart';
 import 'home.dart';
 import 'map_screen/map_page.dart';
 import 'onboarding_screen/onboarding_page.dart';
+import 'profile/notif_page.dart';
 import 'select_region/select_region_page.dart';
 
 abstract class AppNavRouteName {
@@ -18,6 +20,8 @@ abstract class AppNavRouteName {
   static const placeDetails = 'map/placeDetails';
   static const eventDetails = 'map/eventDetails';
   static const auth = 'auth';
+  static const profile = 'profile';
+  static const notif = 'profile/notif';
 }
 
 class AppNavigation {
@@ -56,6 +60,24 @@ class MapNestedNavigation {
         final arg = settings.arguments as Event;
         return MaterialPageRoute(
             builder: (context) => EventDetailsPage(currentEvent: arg));
+
+      default:
+        return MaterialPageRoute(
+            builder: (context) => const Scaffold(
+                body: Center(child: Text('Nested navigation error!!!'))));
+    }
+  }
+}
+
+class ProfNestedNavigation {
+  static const initialRoute = AppNavRouteName.profile;
+
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case AppNavRouteName.profile:
+        return MaterialPageRoute(builder: (context) => const ProfilePage());
+      case AppNavRouteName.notif:
+        return MaterialPageRoute(builder: (context) => const NotifList());
 
       default:
         return MaterialPageRoute(

@@ -24,7 +24,7 @@ abstract class _PlacesState with Store {
   String error = '';
 
   @computed
-  bool get isLoading => places.isEmpty && !hasError;
+  bool get isLoading => placesNearUser.isEmpty && !hasError;
   @computed
   bool get hasError => error != '';
 
