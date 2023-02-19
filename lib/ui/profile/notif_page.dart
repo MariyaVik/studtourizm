@@ -29,11 +29,14 @@ class NotifCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Экскурсия в Институт искусственного интеллекта',
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(fontSize: 14)),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Text('Экскурсия в Институт искусственного интеллекта',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(fontSize: 14)),
+        ),
         SizedBox(height: 16),
         Container(
           // margin: const EdgeInsets.all(15.0),
