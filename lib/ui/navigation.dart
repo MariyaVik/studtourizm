@@ -5,10 +5,12 @@ import 'package:studtourizm/ui/auth/auth_page.dart';
 import 'package:studtourizm/ui/profile/profile_page.dart';
 
 import '../models/event/event.dart';
+import '../models/place/place.dart';
 import 'events/event_details_page.dart';
 import 'home.dart';
 import 'map_screen/map_page.dart';
 import 'onboarding_screen/onboarding_page.dart';
+import 'places/place_details.dart';
 import 'profile/notif_page.dart';
 import 'select_region/select_region_page.dart';
 
@@ -32,7 +34,7 @@ class AppNavigation {
       case AppNavRouteName.onboarding:
         return MaterialPageRoute(builder: (context) => const OnboardingPage());
       case AppNavRouteName.home:
-        return MaterialPageRoute(builder: (context) => const HomePage());
+        return MaterialPageRoute(builder: (context) => HomePage());
       case AppNavRouteName.auth:
         return MaterialPageRoute(builder: (context) => const AuthPage());
       case AppNavRouteName.selectRegion:
@@ -54,8 +56,10 @@ class MapNestedNavigation {
     switch (settings.name) {
       case AppNavRouteName.map:
         return MaterialPageRoute(builder: (context) => const MapPage());
-      // case AppNavRouteName.placeDetails:
-      //   return MaterialPageRoute(builder: (context) => const MapPage());
+      case AppNavRouteName.placeDetails:
+        final arg = settings.arguments as Place;
+        return MaterialPageRoute(
+            builder: (context) => PlaceDetailsPage(place: arg));
       case AppNavRouteName.eventDetails:
         final arg = settings.arguments as Event;
         return MaterialPageRoute(

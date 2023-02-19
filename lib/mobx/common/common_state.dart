@@ -56,4 +56,9 @@ abstract class _CommonState with Store {
   Future<void> getCurrentLocation() async {
     position = await userGeo.getGeo().then((polsition) => polsition);
   }
+
+  @action
+  void updateTab(int index) {
+    activeTabIndex = index;
+  }
 }

@@ -19,6 +19,7 @@ class BottomPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       maxChildSize: 0.75,
+      minChildSize: 0.3,
       builder: (BuildContext context, ScrollController scrollController) {
         return Expanded(
           child: Stack(

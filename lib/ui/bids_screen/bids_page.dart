@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../mobx/common/common_state.dart';
 import '../../theme/theme.dart';
 
 class BidsPage extends StatelessWidget {
@@ -97,7 +99,10 @@ class NoBids extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           ElevatedButton(
-              onPressed: () {}, child: Text('Отправиться в путешествие'))
+              onPressed: () {
+                Provider.of<CommonState>(context, listen: false).updateTab(0);
+              },
+              child: Text('Отправиться в путешествие'))
         ],
       ),
     ));

@@ -19,16 +19,25 @@ class PlaceCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             PlaceMainInfo(place: place),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8.0),
-              child: place.details.mainInfo.photos.isEmpty
-                  ? const PlaceImageDefault()
-                  : Image.network(
-                      place.details.mainInfo.photos[0],
-                      height: MediaQuery.of(context).size.height / 4,
-                      width: MediaQuery.of(context).size.height * 3 / 4,
-                      fit: BoxFit.cover,
-                    ),
+            Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: place.details.mainInfo.photos.isEmpty
+                      ? const PlaceImageDefault()
+                      : Image.network(
+                          place.details.mainInfo.photos[0],
+                          height: MediaQuery.of(context).size.height / 4,
+                          width: MediaQuery.of(context).size.height * 3 / 4,
+                          fit: BoxFit.cover,
+                        ),
+                ),
+                Positioned(
+                    child: IconButton(
+                  onPressed: () {},
+                  icon: ImageIcon(AssetImage('assets/icons/heart.png')),
+                ))
+              ],
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
