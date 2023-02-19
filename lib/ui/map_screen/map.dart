@@ -133,7 +133,7 @@ class _MapWithMarkersState extends State<MapWithMarkers> {
           if (moreInfoVisible)
             Positioned(
               top: 10,
-              left: 16,
+              left: MediaQuery.of(context).size.width / 2 - 163,
               child: MoreInfo(place: currentPlace),
             ),
         ],

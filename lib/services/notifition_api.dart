@@ -5,11 +5,17 @@ class NotifitionAPI {
   static final _notif = FlutterLocalNotificationsPlugin();
   static final onNotif = BehaviorSubject<NotificationResponse?>();
   static Future _notifDetails() async {
+    const largeIconPath = 'assets/images/univ.png';
+    const bigPicturePath = 'assets/images/nature.png';
+    const styleInformation = BigPictureStyleInformation(
+        FilePathAndroidBitmap(bigPicturePath),
+        largeIcon: FilePathAndroidBitmap(largeIconPath));
     return NotificationDetails(
         android: AndroidNotificationDetails("channelId", "channelName",
             channelDescription: 'channelDescription',
             icon: 'logo_only',
-            importance: Importance.max));
+            importance: Importance.max,
+            styleInformation: styleInformation));
   }
 
   static Future init({bool initSch = false}) async {
