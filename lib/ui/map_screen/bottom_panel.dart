@@ -1,4 +1,3 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +9,6 @@ import '../events/event_list.dart';
 import '../places/places_list.dart';
 import 'drop_down_botton.dart';
 import 'select_date_button.dart';
-import 'select_entity.dart';
 
 class FiltersPlace extends StatelessWidget {
   const FiltersPlace({Key? key}) : super(key: key);
@@ -21,26 +19,26 @@ class FiltersPlace extends StatelessWidget {
       // mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SelectDateButton(),
-        SizedBox(height: 16),
-        Container(
+        const SelectDateButton(),
+        const SizedBox(height: 16),
+        SizedBox(
           width: double.infinity,
           height: 40,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
               Image.asset('assets/icons/filter.png'),
-              SelectWidget(
+              const SelectWidget(
                 hint: 'ВУЗ',
                 listItem: MealFilterName.list,
               ),
-              SizedBox(width: 8),
-              SelectWidget(
+              const SizedBox(width: 8),
+              const SelectWidget(
                 hint: 'Питание',
                 listItem: MealFilterName.list,
               ),
-              SizedBox(width: 8),
-              SelectWidget(
+              const SizedBox(width: 8),
+              const SelectWidget(
                 hint: 'Тип размещения',
                 listItem: MealFilterName.list,
               ),
@@ -72,12 +70,12 @@ class PanelWidget extends StatelessWidget {
             width: 50,
           ),
         ),
-        Divider(),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        const Divider(),
+        const Padding(
+          padding: EdgeInsets.all(16.0),
           child: FiltersPlace(),
         ),
-        Divider(),
+        const Divider(),
         Observer(builder: (context) {
           return Expanded(
             child:

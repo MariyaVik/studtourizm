@@ -22,16 +22,17 @@ class EventCard extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 6),
           child: Text(event.nameVuz,
-              style: TextStyle(fontWeight: FontWeight.w400, fontSize: 11)),
+              style:
+                  const TextStyle(fontWeight: FontWeight.w400, fontSize: 11)),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10),
           child: Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: Text('г. Самара, ул Московское шоссе д 34',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w400, fontSize: 10)),
+                    style:
+                        TextStyle(fontWeight: FontWeight.w400, fontSize: 10)),
               ),
               if (dataCompact)
                 Container(

@@ -5,7 +5,6 @@ import '../../models/room/room.dart';
 import '../../models/room/room_data_range.dart';
 import '../../models/room/room_details.dart';
 import '../../theme/theme.dart';
-import '../navigation.dart';
 import '../rooms/rooms_list.dart';
 import '../utils.dart';
 import 'place_card.dart';
@@ -13,7 +12,7 @@ import 'place_main_info.dart';
 
 class PlaceDetailsPage extends StatelessWidget {
   final Place place;
-  PlaceDetailsPage({required this.place, super.key});
+  const PlaceDetailsPage({required this.place, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class PlaceDetailsPage extends StatelessWidget {
             top: 24,
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    shape: CircleBorder(),
+                    shape: const CircleBorder(),
                     // padding: EdgeInsets.all(20),
                     backgroundColor: Colors.white.withOpacity(0.84),
                     elevation: 0),

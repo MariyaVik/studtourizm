@@ -148,8 +148,8 @@ class OnbordView extends StatelessWidget {
 }
 
 class StoriesIndicator extends StatelessWidget {
-  bool isActive;
-  StoriesIndicator({required this.isActive, super.key});
+  final bool isActive;
+  const StoriesIndicator({required this.isActive, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -159,7 +159,7 @@ class StoriesIndicator extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
           boxShadow: [
             BoxShadow(
-                offset: Offset(0, 5),
+                offset: const Offset(0, 5),
                 color: Colors.black.withOpacity(0.25),
                 blurRadius: 5)
           ]),

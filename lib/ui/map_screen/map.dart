@@ -154,7 +154,7 @@ class MoreInfo extends StatelessWidget {
             .pushNamed(AppNavRouteName.placeDetails, arguments: place);
       },
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         width: 325,
         height: 116,
         decoration: BoxDecoration(
@@ -176,7 +176,7 @@ class MoreInfo extends StatelessWidget {
                       ),
               ),
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Expanded(
               child: PlaceMainInfo(
                   place: place, nameSize: 10, univSize: 9, addressSize: 8),

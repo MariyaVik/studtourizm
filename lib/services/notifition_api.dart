@@ -12,7 +12,7 @@ class NotifitionAPI {
     const styleInformation = BigPictureStyleInformation(
         FilePathAndroidBitmap(bigPicturePath),
         largeIcon: FilePathAndroidBitmap(largeIconPath));
-    return NotificationDetails(
+    return const NotificationDetails(
         android: AndroidNotificationDetails("channelId", "channelName",
             channelDescription: 'channelDescription',
             icon: 'logo_only',
@@ -22,7 +22,7 @@ class NotifitionAPI {
 
   static Future init({bool initSch = false}) async {
     var initializationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+        const AndroidInitializationSettings('@mipmap/ic_launcher');
     final settings =
         InitializationSettings(android: initializationSettingsAndroid);
     await _notif.initialize(

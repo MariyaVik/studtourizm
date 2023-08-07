@@ -5,7 +5,7 @@ import '../navigation.dart';
 import 'room_card.dart';
 
 class RoomsList extends StatelessWidget {
-  RoomsList({required this.room, Key? key}) : super(key: key);
+  const RoomsList({required this.room, Key? key}) : super(key: key);
 
   final Room room;
   @override
@@ -19,7 +19,7 @@ class RoomsList extends StatelessWidget {
               Navigator.of(context)
                   .pushNamed(AppNavRouteName.roomDetails, arguments: room);
             },
-            child: RoomCard());
+            child: const RoomCard());
       },
       itemCount: 3,
     );

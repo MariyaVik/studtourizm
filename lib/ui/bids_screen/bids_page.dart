@@ -24,7 +24,7 @@ class BidsPage extends StatelessWidget {
             elevation: 0.5,
           ),
           body: Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 Container(
@@ -36,7 +36,7 @@ class BidsPage extends StatelessWidget {
                     indicator: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                              offset: Offset(0, 5),
+                              offset: const Offset(0, 5),
                               blurRadius: 5,
                               color: Colors.black.withOpacity(0.25))
                         ],
@@ -54,10 +54,10 @@ class BidsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
+                const Expanded(
                     child: TabBarView(
                   children: [
-                    const NoBids(),
+                    NoBids(),
                     ReservationActive(),
                     // const NoComplietedBids(),
                   ],
@@ -102,7 +102,7 @@ class NoBids extends StatelessWidget {
               onPressed: () {
                 Provider.of<CommonState>(context, listen: false).updateTab(0);
               },
-              child: Text('Отправиться в путешествие'))
+              child: const Text('Отправиться в путешествие'))
         ],
       ),
     ));
@@ -133,7 +133,7 @@ class ReservationActive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [ReservationEvents(), ReservationPlaces()],
+      children: const [ReservationEvents(), ReservationPlaces()],
     );
   }
 }
@@ -150,7 +150,7 @@ class ReservationEvents extends StatelessWidget {
         children: [
           Text('Бронирование событий',
               style: Theme.of(context).textTheme.titleLarge),
-          ReservatedEventCard(),
+          const ReservatedEventCard(),
         ],
       ),
     );
@@ -172,13 +172,13 @@ class ReservatedEventCard extends StatelessWidget {
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 14)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text('Экскурсия в Институт искусственного интеллекта',
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!
                   .copyWith(fontSize: 14)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Container(
             // margin: const EdgeInsets.all(15.0),
             padding: const EdgeInsets.all(10.0),
@@ -191,7 +191,7 @@ class ReservatedEventCard extends StatelessWidget {
                     .titleLarge!
                     .copyWith(fontSize: 14)),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Container(
             height: 120,
             // margin: const EdgeInsets.all(15.0),
@@ -217,7 +217,7 @@ class ReservatedEventCard extends StatelessWidget {
                                 )),
                         Text('июня',
                             style: Theme.of(context).textTheme.titleSmall),
-                        Spacer(),
+                        const Spacer(),
                         Text('11:40',
                             style: Theme.of(context)
                                 .textTheme
@@ -272,7 +272,7 @@ class ReservationPlaces extends StatelessWidget {
         children: [
           Text('Бронирование проживания',
               style: Theme.of(context).textTheme.titleLarge),
-          ReservatedPlaceCard(),
+          const ReservatedPlaceCard(),
         ],
       ),
     );
@@ -294,13 +294,13 @@ class ReservatedPlaceCard extends StatelessWidget {
                   .textTheme
                   .titleLarge!
                   .copyWith(fontSize: 14)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Text('Экскурсия в Институт искусственного интеллекта',
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!
                   .copyWith(fontSize: 14)),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Container(
             // margin: const EdgeInsets.all(15.0),
             padding: const EdgeInsets.all(10.0),
@@ -313,7 +313,7 @@ class ReservatedPlaceCard extends StatelessWidget {
                     .titleLarge!
                     .copyWith(fontSize: 14)),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Container(
             height: 120,
             // margin: const EdgeInsets.all(15.0),
@@ -339,7 +339,7 @@ class ReservatedPlaceCard extends StatelessWidget {
                                 )),
                         Text('июня',
                             style: Theme.of(context).textTheme.titleSmall),
-                        Spacer(),
+                        const Spacer(),
                         Text('11:40',
                             style: Theme.of(context)
                                 .textTheme

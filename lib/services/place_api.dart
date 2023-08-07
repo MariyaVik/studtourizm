@@ -20,7 +20,7 @@ class PlaceAPI {
   Future<List<Place>> getPlacesNearEvent(String eventId) async {
     try {
       final response = await dio.get(
-          'https://montizar.ru/api/event.php?function=sobitie&id=${eventId}');
+          'https://montizar.ru/api/event.php?function=sobitie&id=$eventId');
       final List<Place> places =
           response.data.map<Place>((e) => Place.fromJson(e)).toList();
       return places;
@@ -32,7 +32,7 @@ class PlaceAPI {
   Future<List<Place>> getPlacesNearUser(double lat, double long) async {
     try {
       final response = await dio.get(
-          'https://montizar.ru/api/dormitori.php?function=blizko&geo_lat=${lat}&geo_lon=${long}');
+          'https://montizar.ru/api/dormitori.php?function=blizko&geo_lat=$lat&geo_lon=$long');
       final List<Place> places =
           response.data.map<Place>((e) => Place.fromJson(e)).toList();
       return places;

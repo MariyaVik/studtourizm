@@ -4,8 +4,8 @@ import '../../models/room/room.dart';
 import '../../theme/theme.dart';
 
 class RoomDetailsPage extends StatelessWidget {
-  RoomDetailsPage({required this.room, super.key});
-  Room room;
+  const RoomDetailsPage({required this.room, super.key});
+  final Room room;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class RoomDetailsPage extends StatelessWidget {
               top: 24,
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(),
+                      shape: const CircleBorder(),
                       // padding: EdgeInsets.all(20),
                       backgroundColor: Colors.white.withOpacity(0.84),
                       elevation: 0),
@@ -44,7 +44,7 @@ class RoomDetailsPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                ImageIcon(
+                const ImageIcon(
                   AssetImage('assets/icons/human.png'),
                   color: greyDark,
                 ),
@@ -69,12 +69,12 @@ class RoomDetailsPage extends StatelessWidget {
             ),
           ),
           const Divider(),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: InRoom(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
+          const Padding(
+            padding: EdgeInsets.all(16.0),
             child: InPlace(),
           ),
         ]),
@@ -103,9 +103,10 @@ class InRoom extends StatelessWidget {
         Text('Услуги в комнате',
             style:
                 Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16)),
-        RoomServiceItem(icon: "assets/icons/tv.png", text: 'Телевизор'),
-        RoomServiceItem(icon: "assets/icons/refr.png", text: 'Холодильник'),
-        RoomServiceItem(
+        const RoomServiceItem(icon: "assets/icons/tv.png", text: 'Телевизор'),
+        const RoomServiceItem(
+            icon: "assets/icons/refr.png", text: 'Холодильник'),
+        const RoomServiceItem(
             icon: "assets/icons/tea.png", text: 'Электрический чайник'),
       ],
     );
@@ -125,7 +126,7 @@ class RoomServiceItem extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(icon),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           Text(text),
         ],
       ),
@@ -144,10 +145,11 @@ class InPlace extends StatelessWidget {
         Text('Услуги в общежитии',
             style:
                 Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 16)),
-        RoomServiceItem(icon: "assets/icons/wifi.png", text: 'Wi-fi в лобби'),
-        RoomServiceItem(
+        const RoomServiceItem(
+            icon: "assets/icons/wifi.png", text: 'Wi-fi в лобби'),
+        const RoomServiceItem(
             icon: "assets/icons/wash.png", text: 'Стиральная машина'),
-        RoomServiceItem(icon: "assets/icons/tea.png", text: 'Душ'),
+        const RoomServiceItem(icon: "assets/icons/tea.png", text: 'Душ'),
       ],
     );
   }

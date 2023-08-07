@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../models/place/place.dart';
-import '../../theme/theme.dart';
 import '../utils.dart';
 import 'place_main_info.dart';
 
@@ -36,7 +35,8 @@ class PlaceCard extends StatelessWidget {
                     right: 16,
                     child: IconButton(
                       onPressed: () {},
-                      icon: ImageIcon(AssetImage('assets/icons/heart.png')),
+                      icon:
+                          const ImageIcon(AssetImage('assets/icons/heart.png')),
                     ))
               ],
             ),

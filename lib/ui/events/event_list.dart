@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../../mobx/events/events_state.dart';
-import '../../mobx/places/places_state.dart';
-import '../../models/event/event.dart';
 import '../navigation.dart';
 import 'event_card.dart';
 

@@ -1,6 +1,4 @@
 import 'package:mobx/mobx.dart';
-import 'package:provider/provider.dart';
-import 'package:studtourizm/mobx/common/common_state.dart';
 
 import '../../models/event/event.dart';
 import '../../services/events_api.dart';

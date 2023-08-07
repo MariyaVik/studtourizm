@@ -46,7 +46,8 @@ class _ProfilePageState extends State<ProfilePage> {
               onPressed: () {
                 Navigator.of(context).pushNamed(AppNavRouteName.notif);
               },
-              icon: Icon(Icons.notifications, size: 24, color: mainColor)),
+              icon:
+                  const Icon(Icons.notifications, size: 24, color: mainColor)),
           IconButton(
               onPressed: () {},
               icon: Image.asset('assets/icons/exit.png',
@@ -64,12 +65,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   title: 'Студтуризм.рф',
                   body: 'Ваша заявка одобрена университетом!',
                   showedText: 'Вот тебе 5 баллов',
-                  scheduleDate: DateTime.now().add(Duration(seconds: 5)));
-              final SnackBar snackBar =
+                  scheduleDate: DateTime.now().add(const Duration(seconds: 5)));
+              const SnackBar snackBar =
                   SnackBar(content: Text('Заявка подана'));
-              ScaffoldMessenger.of(context)..showSnackBar(snackBar);
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             },
-            child: Text('Отправить уведомление')),
+            child: const Text('Отправить уведомление')),
       ),
     );
   }

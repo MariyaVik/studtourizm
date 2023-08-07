@@ -24,7 +24,7 @@ class _SelectWidgetState extends State<SelectWidget> {
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
-              .copyWith(fontSize: 13, color: Color(0xFF6C6C6C)),
+              .copyWith(fontSize: 13, color: const Color(0xFF6C6C6C)),
           overflow: TextOverflow.ellipsis,
         ),
         items: widget.listItem
@@ -35,7 +35,7 @@ class _SelectWidgetState extends State<SelectWidget> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(fontSize: 13, color: Color(0xFF6C6C6C)),
+                        .copyWith(fontSize: 13, color: const Color(0xFF6C6C6C)),
                     overflow: TextOverflow.ellipsis,
                   ),
                 ))
@@ -65,7 +65,7 @@ class _SelectWidgetState extends State<SelectWidget> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(14),
         ),
-        offset: Offset(0, 10),
+        offset: const Offset(0, 10),
       ),
     );
   }

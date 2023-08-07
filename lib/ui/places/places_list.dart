@@ -1,12 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import '../../mobx/common/common_state.dart';
 import '../../mobx/places/places_state.dart';
-import '../../models/place/place.dart';
 import '../navigation.dart';
 import 'place_card.dart';
 

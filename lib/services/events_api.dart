@@ -20,7 +20,7 @@ class EventsAPI {
   Future<List<Event>> getEventsInDateRande(int from, int to) async {
     try {
       final response = await dio.get(
-          'https://montizar.ru/api/event.php?function=to_from&data_to=${to}&data_from=${from}');
+          'https://montizar.ru/api/event.php?function=to_from&data_to=$to&data_from=$from');
       final List<Event> events =
           response.data.map<Event>((e) => Event.fromJson(e)).toList();
       return events;

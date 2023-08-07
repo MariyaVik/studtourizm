@@ -39,7 +39,7 @@ class _SelectDateButtonState extends State<SelectDateButton> {
           pickDateRange();
         },
         child: Container(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
               color: greyMegaLight, borderRadius: BorderRadius.circular(5)),
           child: Row(mainAxisSize: MainAxisSize.min, children: [

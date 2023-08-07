@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studtourizm/mobx/common/common_state.dart';
 
-import '../../models/user/user.dart';
 import '../../theme/theme.dart';
 import '../common/big_full_logo.dart';
 
@@ -50,7 +49,8 @@ class _AuthPageState extends State<AuthPage> {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: TextButton(onPressed: () {}, child: Text('Регистрация')),
+                child: TextButton(
+                    onPressed: () {}, child: const Text('Регистрация')),
               )
             ],
           ),
@@ -67,11 +67,11 @@ class _AuthPageState extends State<AuthPage> {
         fillColor: greyLight.withOpacity(0.8),
         border: const OutlineInputBorder(),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: backColor),
+          borderSide: const BorderSide(color: backColor),
           borderRadius: BorderRadius.circular(5),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: backColor),
+          borderSide: const BorderSide(color: backColor),
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -83,6 +83,7 @@ class _AuthPageState extends State<AuthPage> {
             .hasMatch(value)) {
           return 'Введён некорректный адрес';
         }
+        return null;
       },
       onSaved: (String? value) {
         Provider.of<CommonState>(context, listen: false).user.email = value;
@@ -104,11 +105,11 @@ class _AuthPageState extends State<AuthPage> {
         fillColor: greyLight.withOpacity(0.8),
         border: const OutlineInputBorder(),
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: backColor),
+          borderSide: const BorderSide(color: backColor),
           borderRadius: BorderRadius.circular(5),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: backColor),
+          borderSide: const BorderSide(color: backColor),
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -116,6 +117,7 @@ class _AuthPageState extends State<AuthPage> {
         if (value == null || value == '') {
           return 'Поле обязательно для заполнения';
         }
+        return null;
       },
       onSaved: (String? value) {
         Provider.of<CommonState>(context, listen: false).user.password = value;
@@ -132,7 +134,7 @@ class _AuthPageState extends State<AuthPage> {
       onPressed: () {
         _submitForm();
       },
-      child: Text('Войти'),
+      child: const Text('Войти'),
     );
   }
 

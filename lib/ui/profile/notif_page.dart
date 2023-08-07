@@ -16,7 +16,7 @@ class NotifList extends StatelessWidget {
             onTap: () {
               Provider.of<CommonState>(context, listen: false).updateTab(2);
             },
-            child: NotifCard()),
+            child: const NotifCard()),
       ]),
     );
   }
@@ -37,7 +37,7 @@ class NotifCard extends StatelessWidget {
                   .titleMedium!
                   .copyWith(fontSize: 14)),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Container(
           // margin: const EdgeInsets.all(15.0),
           padding: const EdgeInsets.all(10.0),

@@ -15,7 +15,7 @@ import '../places/places_list.dart';
 
 class EventDetailsPage extends StatefulWidget {
   final Event currentEvent;
-  EventDetailsPage({
+  const EventDetailsPage({
     required this.currentEvent,
     Key? key,
   }) : super(key: key);
@@ -89,13 +89,13 @@ class _EventDetailsPageState extends State<EventDetailsPage> {
                             body: 'Ваша заявка одобрена университетом!',
                             showedText: 'Вот тебе 5 баллов',
                             scheduleDate:
-                                DateTime.now().add(Duration(seconds: 5)));
-                        final SnackBar snackBar =
+                                DateTime.now().add(const Duration(seconds: 5)));
+                        const SnackBar snackBar =
                             SnackBar(content: Text('Заявка подана'));
-                        ScaffoldMessenger.of(context)..showSnackBar(snackBar);
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
-                    child: Text('Оставить заявку')),
+                    child: const Text('Оставить заявку')),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),

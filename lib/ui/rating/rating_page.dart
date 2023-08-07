@@ -119,7 +119,7 @@ class RatingRow extends StatelessWidget {
               Positioned(right: 0, bottom: -5, child: medal(index)),
           ],
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Expanded(
             child: Text(
           name,
@@ -140,17 +140,17 @@ class RatingRow extends StatelessWidget {
     late Color color;
     switch (index) {
       case 0:
-        color = Color(0xFFFFD43D);
+        color = const Color(0xFFFFD43D);
         break;
       case 1:
-        color = Color(0xFFCACACA);
+        color = const Color(0xFFCACACA);
         break;
       case 2:
-        color = Color(0xFFC96933);
+        color = const Color(0xFFC96933);
         break;
     }
     return ImageIcon(
-      AssetImage('assets/icons/achiev.png'),
+      const AssetImage('assets/icons/achiev.png'),
       color: color,
     );
   }

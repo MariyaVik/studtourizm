@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
-import 'package:studtourizm/mobx/places/places_state.dart';
 
 import '../../mobx/common/common_state.dart';
 import '../../models/region/region.dart';
@@ -41,9 +40,9 @@ class SelectRegionPage extends StatelessWidget {
                                 .getCurrentLocation()
                                 .whenComplete(() => print(
                                     'координаты получены: ${Provider.of<CommonState>(context, listen: false).position}'));
-                            var coord =
-                                Provider.of<CommonState>(context, listen: false)
-                                    .position;
+                            // var coord =
+                            //     Provider.of<CommonState>(context, listen: false)
+                            //         .position;
                             // await Provider.of<PlacesState>(context,
                             //         listen: false)
                             //     .loadPlacesNearUser(
@@ -51,10 +50,10 @@ class SelectRegionPage extends StatelessWidget {
                             Navigator.of(context)
                                 .pushReplacementNamed(AppNavRouteName.home);
                           },
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
                             child: Row(
-                              children: const [
+                              children: [
                                 ImageIcon(
                                   AssetImage('assets/icons/pos.png'),
                                   color: greyDark,
@@ -65,7 +64,7 @@ class SelectRegionPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        CloseButtonMy(
+                        const CloseButtonMy(
                           routeName: AppNavRouteName.home,
                         ),
                       ],
@@ -111,7 +110,7 @@ class SelectRegionPage extends StatelessWidget {
                 child: RegionItem(
                   region:
                       Region(code: 77, name: 'Москва', codeISO: RegionAbb.msk),
-                  textStyle: TextStyle(fontWeight: FontWeight.w600),
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
               Padding(
@@ -121,10 +120,10 @@ class SelectRegionPage extends StatelessWidget {
                       code: 78,
                       codeISO: RegionAbb.sbp,
                       name: 'Санкт-Петербург'),
-                  textStyle: TextStyle(fontWeight: FontWeight.w600),
+                  textStyle: const TextStyle(fontWeight: FontWeight.w600),
                 ),
               ),
-              Divider(),
+              const Divider(),
               ...regionList
                   .map((e) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16),

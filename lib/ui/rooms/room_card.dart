@@ -12,7 +12,7 @@ class RoomCard extends StatelessWidget {
       children: [
         Row(
           children: [
-            ImageIcon(
+            const ImageIcon(
               AssetImage('assets/icons/human.png'),
               color: greyDark,
             ),
